@@ -12,15 +12,16 @@ public class Book {
     private String bookName;
     private String authorName;
     private String description;
+    private Float price;
 
     public Book() {
     }
 
-    public Book(Long id, String bookName, String authorName, String description) {
-        this.id = id;
+    public Book(String bookName, String authorName, String description, Float price) {
         this.bookName = bookName;
         this.authorName = authorName;
         this.description = description;
+        this.price = price;
     }
 
     public Long getId() {
@@ -55,6 +56,15 @@ public class Book {
         this.description = description;
     }
 
+    public Float getPrice() {
+        return price;
+    }
+
+    public void setPrice(Float price) {
+        this.price = price;
+    }
+
+
     @Override
     public String toString() {
         return "Book{" +
@@ -62,6 +72,7 @@ public class Book {
                 ", bookName='" + bookName + '\'' +
                 ", authorName='" + authorName + '\'' +
                 ", description='" + description + '\'' +
+                ", price=" + price +
                 '}';
     }
 }
