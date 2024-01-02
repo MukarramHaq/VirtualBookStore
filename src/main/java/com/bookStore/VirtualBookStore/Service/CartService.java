@@ -40,4 +40,8 @@ public class CartService {
 
     }
 
+    public ResponseEntity<Cart> removeBookById(Long bookId){
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 }
