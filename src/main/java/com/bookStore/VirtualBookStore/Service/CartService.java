@@ -40,4 +40,17 @@ public class CartService {
 
     }
 
+    public ResponseEntity<Cart> removeBookById(Long bookId){
+
+        Cart cart = cartRepo.findById(12).orElse(new Cart());
+        Book deletedBook = bookRepo.findById(bookId).get();
+        List<Book> bookList = cart.getBookList();
+        bookList.remove(deletedBook);
+        Integer updatedTotal = cart.getTotalPrice() - deletedBook.getPrice();
+        cart.setTotalPrice(updatedTotal);
+
+        return new ResponseEntity<>(cartRepo.save(cart), HttpStatus.OK);
+
+    }
+
 }
