@@ -60,6 +60,7 @@ public class BookService {
             updatedBookData.setBookName(newBookData.getBookName());
             updatedBookData.setAuthorName(newBookData.getAuthorName());
             updatedBookData.setDescription(newBookData.getDescription());
+            updatedBookData.setPrice(newBookData.getPrice());
 
             Book savedDate = bookRepo.save(updatedBookData);
             return new ResponseEntity<>(savedDate, HttpStatus.OK);
