@@ -28,5 +28,9 @@ public class CartController {
         return cartService.removeBookById(bookId);
     }
 
+    @DeleteMapping("/clearCart")
+        public ResponseEntity<Cart> clearCart(){
+            return cartService.clearCart();
+        }
 
 }

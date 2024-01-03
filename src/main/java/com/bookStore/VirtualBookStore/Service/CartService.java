@@ -53,4 +53,13 @@ public class CartService {
 
     }
 
+    public ResponseEntity<Cart> clearCart(){
+        Cart cart = cartRepo.findById(12).orElse(new Cart());
+        cartRepo.deleteAll();
+        Integer updatedTotal = 0;
+        cart.setTotalPrice(updatedTotal);
+        return new ResponseEntity<>(cartRepo.save(cart), HttpStatus.OK);
+
+    }
+
 }
