@@ -26,8 +26,8 @@ public class BookController {
     }
 
     @GetMapping("/getAllBooks")
-    public ResponseEntity<List<Book>> getAllBooks(){
-        return bookService.getAllBooks();
+    public ResponseEntity<List<Book>> getAllBooks(@RequestParam(defaultValue = "") String stringKey){
+        return bookService.getAllBooks(stringKey);
     }
 
     @GetMapping("/getBookById/{id}")

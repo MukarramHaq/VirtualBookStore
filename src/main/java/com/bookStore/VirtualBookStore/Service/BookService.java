@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.net.http.HttpResponse;
 import java.util.*;
@@ -30,7 +31,7 @@ public class BookService {
 
     }
 
-    public ResponseEntity<List<Book>> getAllBooks(){
+    public ResponseEntity<List<Book>> getAllBooks(String searchKey){
 
         List<Book> bookList = new ArrayList<>(bookRepo.findAll());
         if(bookList.isEmpty()){
