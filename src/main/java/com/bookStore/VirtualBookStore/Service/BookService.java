@@ -34,11 +34,11 @@ public class BookService {
     public ResponseEntity<List<Book>> getAllBooks(String searchKey){
 
         List<Book> bookList = new ArrayList<>(bookRepo.findAll());
-        if(bookList.isEmpty()){
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        if(searchKey.equals("")){
+            return new ResponseEntity<>(bookList, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>((List<Book>)bookRepo.findByBookNameContainingIgnoreCaseOrDescriptionContainingIgnoreCase(searchKey, searchKey), HttpStatus.OK);
         }
-
-        return new ResponseEntity<>(bookList, HttpStatus.OK);
 
     }
 
